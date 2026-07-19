@@ -13,6 +13,15 @@ export function createApp(config) {
 
   app.use(express.json());
 
+  app.get("/", (_req, res) => {
+    res.json({
+      success: true,
+      service: "chatSupport",
+      message: "Toolancer chat realtime service is running.",
+      health: "/health",
+    });
+  });
+
   app.get("/health", (_req, res) => {
     res.json({
       success: true,
